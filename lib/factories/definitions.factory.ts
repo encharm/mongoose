@@ -1,10 +1,12 @@
-import { Type } from '@nestjs/common';
-import { isUndefined } from '@nestjs/common/utils/shared.utils';
 import * as mongoose from 'mongoose';
 import { PropOptions } from '../decorators';
 import { TypeMetadataStorage } from '../storages/type-metadata.storage';
 
 const BUILT_IN_TYPES: Function[] = [Boolean, Number, String, Map, Date, Buffer];
+
+interface Type<T = any> extends Function {
+  new (...args: any[]): T;
+}
 
 export class DefinitionsFactory {
   static createForClass(target: Type<unknown>): mongoose.SchemaDefinition {
@@ -16,7 +18,7 @@ export class DefinitionsFactory {
     let schemaDefinition: mongoose.SchemaDefinition = {};
     let parent: Function = target;
 
-    while (!isUndefined(parent.prototype)) {
+    while (!(typeof parent.prototype === 'undefined')) {
       if (parent === Function.prototype) {
         break;
       }

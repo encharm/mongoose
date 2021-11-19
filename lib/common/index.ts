@@ -1,2 +1,1 @@
-export * from './mongoose.decorators';
-export { getConnectionToken, getModelToken } from './mongoose.utils';
+export { getModelToken } from './mongoose.utils';

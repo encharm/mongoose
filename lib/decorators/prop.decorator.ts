@@ -21,7 +21,8 @@ export function Prop(options?: PropOptions): PropertyDecorator {
 
     const isRawDefinition = options[RAW_OBJECT_DEFINITION];
     if (!options.type && !Array.isArray(options) && !isRawDefinition) {
-      const type = Reflect.getMetadata(TYPE_METADATA_KEY, target, propertyKey);
+      // eslint-disable-next-line prettier/prettier
+      const type = (Reflect as any).getMetadata(TYPE_METADATA_KEY, target, propertyKey);
 
       if (type === Array) {
         options.type = [];

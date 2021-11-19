@@ -1,7 +1,10 @@
-import { Type } from '@nestjs/common';
 import { PropertyMetadata } from '../metadata/property-metadata.interface';
 import { SchemaMetadata } from '../metadata/schema-metadata.interface';
 import { isTargetEqual } from '../utils/is-target-equal-util';
+
+interface Type<T = any> extends Function {
+  new (...args: any[]): T;
+}
 
 export class TypeMetadataStorageHost {
   private schemas = new Array<SchemaMetadata>();
