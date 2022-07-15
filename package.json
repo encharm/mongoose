@@ -1,6 +1,6 @@
 {
   "name": "@encharm/mongoose",
-  "version": "9.0.1",
+  "version": "9.0.2",
   "description": "Fork of @nestjs/mongoose, but without Nest",
   "author": "Damian Kaczmarek",
   "repository": "https://github.com/nestjs/mongoose.git",
@@ -28,7 +28,7 @@
     "mongoose": "6.0.13",
     "prettier": "2.4.1",
     "reflect-metadata": "0.1.13",
-    "rxjs": "7.4.0",
+    "rxjs": "^6.0.0",
     "ts-jest": "27.0.7",
     "ts-node": "10.4.0",
     "typescript": "4.5.2"
@@ -36,6 +36,6 @@
   "peerDependencies": {
     "mongoose": "^6.0.2",
     "reflect-metadata": "^0.1.12",
-    "rxjs": "^6.0.0 || ^7.0.0"
+    "rxjs": "^6.0.0"
   }
 }
